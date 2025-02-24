@@ -1,0 +1,129 @@
+[gd_scene load_steps=19 format=3 uid="uid://baii3270s0itk"]
+
+[ext_resource type="Script" path="res://Scenes/Start/Scripts/StartGame.cs" id="1_vjq30"]
+[ext_resource type="PackedScene" uid="uid://cksawpuhtldfd" path="res://Scenes/Start/Background/landingBG.tscn" id="2_i7n7d"]
+[ext_resource type="Script" path="res://Scenes/Start/Scripts/LandingCharacter.cs" id="3_s2xsx"]
+[ext_resource type="Texture2D" uid="uid://76tqxetay1fe" path="res://Content/Mask Dude/Run (32x32).png" id="5_i5dyk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mo3xl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04h8x"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kxkw"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lrkv"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3o52"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3wxn"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg24t"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4dnr"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p55yv"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbf2r"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hlpa"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpqmm"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa15l"]
+atlas = ExtResource("5_i5dyk")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfjxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04h8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kxkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lrkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3o52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3wxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg24t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4dnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p55yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbf2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hlpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpqmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa15l")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[node name="Game" type="Node2D"]
+
+[node name="StartGame" type="Node2D" parent="."]
+script = ExtResource("1_vjq30")
+
+[node name="landingBG" parent="." instance=ExtResource("2_i7n7d")]
+
+[node name="StartGameButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 403.0
+offset_top = 262.0
+offset_right = 521.0
+offset_bottom = 314.0
+text = "start game"
+
+[node name="LandingCharacter" type="CharacterBody2D" parent="."]
+script = ExtResource("3_s2xsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandingCharacter"]
+position = Vector2(200, 400)
+shape = SubResource("CapsuleShape2D_mo3xl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LandingCharacter"]
+position = Vector2(199, 401)
+sprite_frames = SubResource("SpriteFrames_jfjxd")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.30032
