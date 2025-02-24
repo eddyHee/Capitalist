@@ -19,7 +19,7 @@ public partial class StartGame : Node2D
 		GD.Print("Starting transition...");
 		
 		
-		GetTree().ChangeSceneToFile("res://scenes/main/main_page.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/main/mainPage.tscn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
