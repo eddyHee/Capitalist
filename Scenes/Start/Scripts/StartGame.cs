@@ -16,7 +16,10 @@ public partial class StartGame : Node2D
 	}
 	
 	public void OnStartButtonPressed(){
-		GD.Print("The start button has been pressed");
+		GD.Print("Starting transition...");
+		
+		
+		GetTree().ChangeSceneToFile("res://scenes/main/main_page.tscn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
