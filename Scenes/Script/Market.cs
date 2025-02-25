@@ -4,11 +4,14 @@ using System.Collections.Generic;
 public class Market
 {
 	public List<Good> AvailableGoods { get; set; }
+	public List<Product> AvailableProducts { get; set; }
 
 	public Market()
 	{
 		// Initialize default goods
 		AvailableGoods = CreateDefaultGoods();
+		// Initialize default products
+		AvailableProducts = CreateDefaultProducts();
 	}
 
 	private List<Good> CreateDefaultGoods()
@@ -26,6 +29,29 @@ public class Market
 
 		// Add all goods to the list
 		return new List<Good> { metal, rubber, tire, battery, car };
+	}
+	
+	private List<Product> CreateDefaultProducts()
+	{
+		// Create basic product (no required goods)
+		var metal = new Product(
+			AvailableGoods.Find(g => g.Name == "Metal"), 
+			"Metal specialist", 
+			10, 
+			20, 
+			2
+		);
+		var rubber = new Product(
+			AvailableGoods.Find(g => g.Name == "Rubber"), 
+			"Metal specialist", 
+			10, 
+			20, 
+			2
+		);
+
+
+		// Add all goods to the list
+		return new List<Product> { metal, rubber };
 	}
 
 	// Method to print all available goods

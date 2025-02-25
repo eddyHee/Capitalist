@@ -35,6 +35,7 @@ public class Product
 	
 	// Preload Product.
 	// Design for madeby NPC company
+	// TODO: timeToBuild can have some relationship with BasicTimeToBuild in Good
 	public Product(Good good, string madeBy, float costToBuild, float timeToBuild, int currentQuantities)
 	{
 		Good = good;
