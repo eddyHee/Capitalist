@@ -118,16 +118,20 @@ offset_bottom = 23.0
 text = "Company Name:
 "
 
-[node name="DepartmentContainer" type="GridContainer" parent="." node_paths=PackedStringArray("_departmentContainer")]
+[node name="DepartmentLabel" type="Label" parent="."]
 offset_left = 88.0
 offset_top = 188.0
-offset_right = 320.0
-offset_bottom = 332.0
+offset_right = 195.0
+offset_bottom = 211.0
+text = "Departments:"
+
+[node name="DepartmentContainer" type="GridContainer" parent="." node_paths=PackedStringArray("_departmentContainer")]
+custom_minimum_size = Vector2(220, 90)
+offset_left = 88.0
+offset_top = 212.0
+offset_right = 308.0
+offset_bottom = 302.0
 columns = 2
 script = ExtResource("2_6omfr")
 _departmentContainer = NodePath(".")
 _departmentSlotScene = ExtResource("3_feh4c")
-
-[node name="DepartmentLabel" type="Label" parent="DepartmentContainer"]
-layout_mode = 2
-text = "Departments:"

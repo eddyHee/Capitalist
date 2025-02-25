@@ -1,6 +1,11 @@
 using Godot;
 using System;
 
+/* Summary
+This class is attached to DepartmentContainer(GridContainer)
+
+it shows department info dynamically 
+*/
 public partial class DepartmentContainer : GridContainer
 {
 	[Export] private GridContainer _departmentContainer;

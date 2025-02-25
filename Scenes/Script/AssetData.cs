@@ -31,6 +31,7 @@ public class Department
 	}
 }
 
+
 // AssetData singleton
 [GlobalClass]
 public partial class AssetData : Node
