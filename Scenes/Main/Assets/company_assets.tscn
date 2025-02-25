@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://chrw5f1xjkb6b"]
+[gd_scene load_steps=8 format=3 uid="uid://chrw5f1xjkb6b"]
 
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/CompanyAssets.cs" id="1_y8kw8"]
+[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/DepartmentContainer.cs" id="2_6omfr"]
+[ext_resource type="PackedScene" uid="uid://b4uj3yxpb1m8" path="res://Scenes/Main/Assets/department_slot.tscn" id="3_feh4c"]
 
 [sub_resource type="Animation" id="Animation_4b4k7"]
 length = 0.001
@@ -115,3 +117,17 @@ offset_right = -15.0
 offset_bottom = 23.0
 text = "Company Name:
 "
+
+[node name="DepartmentContainer" type="GridContainer" parent="." node_paths=PackedStringArray("_departmentContainer")]
+offset_left = 88.0
+offset_top = 188.0
+offset_right = 320.0
+offset_bottom = 332.0
+columns = 2
+script = ExtResource("2_6omfr")
+_departmentContainer = NodePath(".")
+_departmentSlotScene = ExtResource("3_feh4c")
+
+[node name="DepartmentLabel" type="Label" parent="DepartmentContainer"]
+layout_mode = 2
+text = "Departments:"

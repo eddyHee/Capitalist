@@ -64,7 +64,7 @@ public partial class CompanyAssets : CanvasLayer
 		if(_moneyValue != null) {
 			_moneyValue.Text = AssetData.Instance.Money.ToString();
 		} else {
-			GD.PrintErr("Money text Edit not found!");
+			GD.PrintErr("Money value label not found!");
 		}
 	}
 	
@@ -74,7 +74,7 @@ public partial class CompanyAssets : CanvasLayer
 		if(_companyNameValue != null) {
 			_companyNameValue.Text = AssetData.Instance.CompanyName;
 		} else {
-			GD.PrintErr("Money text Edit not found!");
+			GD.PrintErr("Company name value label not found!");
 		}
 	}
 	
