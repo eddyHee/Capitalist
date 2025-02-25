@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://chrw5f1xjkb6b"]
+[gd_scene load_steps=10 format=3 uid="uid://chrw5f1xjkb6b"]
 
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/CompanyAssets.cs" id="1_y8kw8"]
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/DepartmentContainer.cs" id="2_6omfr"]
 [ext_resource type="PackedScene" uid="uid://b4uj3yxpb1m8" path="res://Scenes/Main/Assets/department_slot.tscn" id="3_feh4c"]
+[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductContainer.cs" id="4_5j6ei"]
+[ext_resource type="PackedScene" uid="uid://drrej5kdvnocr" path="res://Scenes/Main/Assets/product_slot.tscn" id="5_5ukrc"]
 
 [sub_resource type="Animation" id="Animation_4b4k7"]
 length = 0.001
@@ -84,6 +86,13 @@ text = "Close"
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Label" type="Label" parent="Control"]
+offset_left = 424.0
+offset_top = 60.0
+offset_right = 532.0
+offset_bottom = 83.0
+text = "Company Info"
+
 [node name="MoneyValue" type="Label" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -118,20 +127,44 @@ offset_bottom = 23.0
 text = "Company Name:
 "
 
-[node name="DepartmentLabel" type="Label" parent="."]
+[node name="DepartmentLabel" type="Label" parent="Control"]
 offset_left = 88.0
 offset_top = 188.0
 offset_right = 195.0
 offset_bottom = 211.0
 text = "Departments:"
 
-[node name="DepartmentContainer" type="GridContainer" parent="." node_paths=PackedStringArray("_departmentContainer")]
-custom_minimum_size = Vector2(220, 90)
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+custom_minimum_size = Vector2(740, 90)
 offset_left = 88.0
 offset_top = 212.0
-offset_right = 308.0
+offset_right = 828.0
 offset_bottom = 302.0
-columns = 2
+
+[node name="DepartmentContainer" type="GridContainer" parent="Control/ScrollContainer" node_paths=PackedStringArray("_departmentContainer")]
+custom_minimum_size = Vector2(740, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
 script = ExtResource("2_6omfr")
 _departmentContainer = NodePath(".")
 _departmentSlotScene = ExtResource("3_feh4c")
+
+[node name="ProductLabel" type="Label" parent="Control"]
+offset_left = 88.0
+offset_top = 316.0
+offset_right = 195.0
+offset_bottom = 339.0
+text = "Product:"
+
+[node name="ProductContainer" type="GridContainer" parent="." node_paths=PackedStringArray("_productContainer")]
+custom_minimum_size = Vector2(220, 90)
+offset_left = 88.0
+offset_top = 348.0
+offset_right = 308.0
+offset_bottom = 438.0
+columns = 2
+script = ExtResource("4_5j6ei")
+_productContainer = NodePath(".")
+_productSlotScene = ExtResource("5_5ukrc")

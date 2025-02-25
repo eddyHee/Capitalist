@@ -45,7 +45,8 @@ public partial class AssetData : Node
 	public string CompanyName { get; set; } = "CAP";
 	
 	// Complex data: Departments and Employees
-	public List<Department> Departments { get; set; } = new List<Department>();
+	public static List<Department> Departments { get; set; } = new List<Department>();
+	public static List<Product> Products { get; set; } = new List<Product>();
 	
 
 	// Called when the node enters the scene tree
@@ -68,19 +69,23 @@ public partial class AssetData : Node
 	// Sample data initialization
 	private void InitializeDepartmentData()
 	{
-		// Create a Sales department
-		var salesDepartment = new Department("Sales");
-		salesDepartment.AddEmployee(new Employee("Steve", 100));
-		salesDepartment.AddEmployee(new Employee("Bob", 110));
+		for (int i = 0; i < 5; i++) 
+		{
+			
+			// Create a Sales department
+			var salesDepartment = new Department("Sales");
+			salesDepartment.AddEmployee(new Employee("Steve", 100));
+			salesDepartment.AddEmployee(new Employee("Bob", 110));
 
-		// Create a Marketing department
-		var marketingDepartment = new Department("Marketing");
-		marketingDepartment.AddEmployee(new Employee("Alice", 120));
-		marketingDepartment.AddEmployee(new Employee("John", 130));
+			// Create a Marketing department
+			var marketingDepartment = new Department("Marketing");
+			marketingDepartment.AddEmployee(new Employee("Alice", 120));
+			marketingDepartment.AddEmployee(new Employee("John", 130));
 
-		// Add departments to the list
-		Departments.Add(salesDepartment);
-		Departments.Add(marketingDepartment);
+			// Add departments to the list
+			Departments.Add(salesDepartment);
+			Departments.Add(marketingDepartment);
+		}
 	}
 	
 	private void InitializeProductData()
@@ -94,7 +99,9 @@ public partial class AssetData : Node
 		
 		// Add the new product to the market
 		Market.AddNewProduct(tire);
+		Products.Add(tire);
 		Market.PrintAvailableProducts();
-
 	}
+	
+	
 }

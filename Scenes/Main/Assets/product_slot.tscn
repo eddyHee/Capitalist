@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://drrej5kdvnocr"]
+
+[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductSlot.cs" id="1_7ttvk"]
+
+[node name="slot" type="Panel" node_paths=PackedStringArray("_productNameLabel")]
+custom_minimum_size = Vector2(200, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7ttvk")
+_productNameLabel = NodePath("ProductLabel")
+
+[node name="ProductLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 15.0
+offset_right = 97.0
+offset_bottom = 50.0

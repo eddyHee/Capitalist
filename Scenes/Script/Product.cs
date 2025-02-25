@@ -9,6 +9,15 @@ if product is not made by player company, then some data is not visiable
 public class Product
 {
 	public Good Good { get; set; }    
+	// Property with a custom getter
+	public string Name
+	{
+		get
+		{
+			return GetName();
+		}
+	}
+	
 	public string MadeBy { get; set; }
 	
 	
@@ -44,6 +53,11 @@ public class Product
 		TimeToBuild = timeToBuild;
 		CurrentQuantities = currentQuantities;
 		_isMadeByPlayer = false;
+	}
+	
+	private string GetName()
+	{
+		return Good.Name;
 	}
 	
 	

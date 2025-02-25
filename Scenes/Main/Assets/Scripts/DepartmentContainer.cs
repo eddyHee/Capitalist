@@ -31,7 +31,7 @@ public partial class DepartmentContainer : GridContainer
 			child.QueueFree();
 		}
 
-		var departments = AssetData.Instance.Departments;
+		var departments = AssetData.Departments;
 
 		foreach (var department in departments)
 		{
