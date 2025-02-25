@@ -100,8 +100,6 @@ animations = [{
 }]
 
 [node name="Game" type="Node2D"]
-
-[node name="StartGame" type="Node2D" parent="."]
 script = ExtResource("1_8ohoq")
 
 [node name="landingBG" parent="." instance=ExtResource("2_514yh")]

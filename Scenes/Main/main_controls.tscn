@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwry2g3cjabkr"]
+
+[ext_resource type="Script" path="res://Scenes/Main/Scripts/MainPageLogic.cs" id="1_urj3q"]
+
+[node name="main_controls" type="ParallaxBackground"]
+script = ExtResource("1_urj3q")
+
+[node name="AssetButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 701.0
+offset_top = 22.0
+offset_right = 921.0
+offset_bottom = 136.0
+text = "Asset Info"

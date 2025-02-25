@@ -4,12 +4,6 @@
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
-visible = false
-offset_right = 958.0
-offset_bottom = 543.0
-stretch_mode = 1
-
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
 offset_right = 956.0
 offset_bottom = 542.0
