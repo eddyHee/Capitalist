@@ -18,6 +18,7 @@ public partial class MainPageLogic : ParallaxBackground
 	
 	public void OnAssetButtonPressed(){
 		GD.Print("Asset button pressed...");
+		GD.Print($"Current Money: {AssetData.Instance.Money}");
 		
 		_animPlayer?.Play("TransIn");
 		// Hide and disable the button
