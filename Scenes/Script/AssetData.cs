@@ -69,23 +69,28 @@ public partial class AssetData : Node
 	// Sample data initialization
 	private void InitializeDepartmentData()
 	{
-		for (int i = 0; i < 5; i++) 
-		{
-			
-			// Create a Sales department
-			var salesDepartment = new Department("Sales");
-			salesDepartment.AddEmployee(new Employee("Steve", 100));
-			salesDepartment.AddEmployee(new Employee("Bob", 110));
 
-			// Create a Marketing department
-			var marketingDepartment = new Department("Marketing");
-			marketingDepartment.AddEmployee(new Employee("Alice", 120));
-			marketingDepartment.AddEmployee(new Employee("John", 130));
+		
+		// Create a Sales department
+		var salesDepartment = new Department("Sales");
+		salesDepartment.AddEmployee(new Employee("Steve", 100));
+		salesDepartment.AddEmployee(new Employee("Bob", 110));
 
-			// Add departments to the list
-			Departments.Add(salesDepartment);
-			Departments.Add(marketingDepartment);
-		}
+		// Create a Marketing department
+		var marketingDepartment = new Department("Marketing");
+		marketingDepartment.AddEmployee(new Employee("Alice", 120));
+		marketingDepartment.AddEmployee(new Employee("John", 130));
+		
+		// Create a Production department
+		var productionDepartment = new Department("Production");
+		productionDepartment.AddEmployee(new Employee("Alex", 120));
+		productionDepartment.AddEmployee(new Employee("John", 130));
+
+		// Add departments to the list
+		Departments.Add(salesDepartment);
+		Departments.Add(marketingDepartment);
+		Departments.Add(productionDepartment);
+		
 	}
 	
 	private void InitializeProductData()

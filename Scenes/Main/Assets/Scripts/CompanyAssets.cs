@@ -12,6 +12,7 @@ public partial class CompanyAssets : CanvasLayer
 	// Nodes in company_assets
 	private AnimationPlayer _animPlayer;
 	private Button _closeAssetButton;
+	private Button _marketButton;
 	private Label _moneyValue;
 	private Label _companyNameValue;
 	
@@ -29,6 +30,7 @@ public partial class CompanyAssets : CanvasLayer
 		
 		// Nodes in main_controls
 		GetAssetButton();
+		GetMarketButton();
 		
 		
 	}
@@ -49,6 +51,8 @@ public partial class CompanyAssets : CanvasLayer
 		if(_assetButton != null)	{
 			_assetButton.Visible = true; // Make visible
 			_assetButton.Disabled = false;  // allow interaction
+			_marketButton.Visible = true;
+			_marketButton.Disabled = false;
 		}
 	}
 	
@@ -99,6 +103,19 @@ public partial class CompanyAssets : CanvasLayer
 			
 		} else {
 			GD.PrintErr("assetButton not found!");
+		}
+	}
+	
+	private void GetMarketButton(){
+		_marketButton = GetNode<Button>($"../main_controls/MarketButton");
+		
+		if(_marketButton != null)
+		{
+			
+		}
+		else 
+		{
+			GD.PrintErr("Market button not found!");
 		}
 	}
 	
