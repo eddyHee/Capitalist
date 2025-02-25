@@ -72,24 +72,46 @@ libraries = {
 
 [node name="CloseAsset" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 716.0
-offset_top = 70.0
-offset_right = 861.0
-offset_bottom = 119.0
+offset_left = 744.0
+offset_top = 60.0
+offset_right = 889.0
+offset_bottom = 109.0
 text = "Close"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
-[node name="Money" type="TextEdit" parent="Control"]
+[node name="MoneyValue" type="Label" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 184.0
-offset_top = 179.0
-offset_right = 550.0
-offset_bottom = 262.0
-text = "{AssetData.Instance.Money}"
-editable = false
+offset_left = 160.0
+offset_top = 140.0
+offset_right = 225.0
+offset_bottom = 163.0
+text = "{Money}
+"
+
+[node name="MoneyLabel" type="Label" parent="Control/MoneyValue"]
+layout_mode = 0
+offset_left = -72.0
+offset_right = -15.0
+offset_bottom = 23.0
+text = "Money:"
+
+[node name="CompanyNameValue" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 92.0
+offset_right = 368.0
+offset_bottom = 115.0
+text = "{Company Name}"
+
+[node name="CompanyNameLabel" type="Label" parent="Control/CompanyNameValue"]
+layout_mode = 0
+offset_left = -144.0
+offset_right = -15.0
+offset_bottom = 23.0
+text = "Company Name:
+"

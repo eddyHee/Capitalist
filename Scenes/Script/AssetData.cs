@@ -9,6 +9,7 @@ public partial class AssetData : Node
 
 	// Example global data
 	public int Money { get; set; } = 1000;
+	public string CompanyName { get; set; } = "CAP";
 
 	// Called when the node enters the scene tree
 	public override void _EnterTree()
