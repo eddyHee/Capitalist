@@ -1,24 +1,47 @@
 using Godot;
 using System;
 
+/* Summary
+This class is attached to company_assets(CanvasLayer)
+
+The company_assets is a info panel designed to show all infomation about the company
+*/
 public partial class CompanyAssets : CanvasLayer
 {
 	
+	// Nodes in company_assets
 	private AnimationPlayer _animPlayer;
-	private Button _assetButton;
 	private Button _closeAssetButton;
+	private Button _marketButton;
+	private Label _moneyValue;
+	private Label _companyNameValue;
+	
+	// Nodes in main_controls
+	private Button _assetButton;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// Get close asset button
+		// Nodes in company_assets
 		GetCloseAsset();
-		// Get the asset button
-		GetAssetButton();
-		// Get the animation player
 		GetAnimationPlayer();
+		GetMoneyValue();
+		GetCompanyNameValue();
+		
+		// Nodes in main_controls
+		GetAssetButton();
+		GetMarketButton();
+		
+		
 	}
 
+	/* Summary
+	This method close the panel
+	
+	note: 
+	the asset button(in the main_controls) are disabled and invisiable when this panel is showing
+	undo these changes when remove the panel
+	*/
 	public void OncloseAssetButtonPressed(){
 		GD.Print("Close Asset button pressed...");
 		
@@ -28,6 +51,34 @@ public partial class CompanyAssets : CanvasLayer
 		if(_assetButton != null)	{
 			_assetButton.Visible = true; // Make visible
 			_assetButton.Disabled = false;  // allow interaction
+			_marketButton.Visible = true;
+			_marketButton.Disabled = false;
+		}
+	}
+	
+	/* Summary
+	The methods below are getting nodes
+	
+	setup action
+	init value
+	*/
+	private void GetMoneyValue() {
+		_moneyValue = GetNode<Label>("%MoneyValue");
+		
+		if(_moneyValue != null) {
+			_moneyValue.Text = AssetData.Instance.Money.ToString();
+		} else {
+			GD.PrintErr("Money value label not found!");
+		}
+	}
+	
+	private void GetCompanyNameValue() {
+		_companyNameValue = GetNode<Label>("%CompanyNameValue");
+		
+		if(_companyNameValue != null) {
+			_companyNameValue.Text = AssetData.Instance.CompanyName;
+		} else {
+			GD.PrintErr("Company name value label not found!");
 		}
 	}
 	
@@ -41,13 +92,30 @@ public partial class CompanyAssets : CanvasLayer
 		}
 	}
 	
+	// NOTE:
+	// asset button should be disabled and invisiable when showing this info panel
+	// we need to revert the changes when close panel
+	// no connection needed in the button click
 	private void GetAssetButton(){
 		_assetButton = GetNode<Button>($"../main_controls/AssetButton");
 		
 		if(_assetButton != null){
-			//_assetButton.Pressed += OnAssetButtonPressed;
+			
 		} else {
 			GD.PrintErr("assetButton not found!");
+		}
+	}
+	
+	private void GetMarketButton(){
+		_marketButton = GetNode<Button>($"../main_controls/MarketButton");
+		
+		if(_marketButton != null)
+		{
+			
+		}
+		else 
+		{
+			GD.PrintErr("Market button not found!");
 		}
 	}
 	
