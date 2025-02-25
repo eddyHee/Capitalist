@@ -5,6 +5,7 @@ public partial class CompanyAssets : CanvasLayer
 {
 	
 	private AnimationPlayer _animPlayer;
+	private Button _assetButton;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -15,6 +16,15 @@ public partial class CompanyAssets : CanvasLayer
 			closeAssetButton.Pressed += OncloseAssetButtonPressed;
 		} else {
 			GD.PrintErr("closeAssetButton not found!");
+		}
+		
+		// Get the asset button
+		_assetButton = GetNode<Button>($"../main_controls/AssetButton");
+		
+		if(_assetButton != null){
+			//_assetButton.Pressed += OnAssetButtonPressed;
+		} else {
+			GD.PrintErr("assetButton not found!");
 		}
 		
 		// Get the animation player
@@ -29,6 +39,10 @@ public partial class CompanyAssets : CanvasLayer
 		GD.Print("Close Asset button pressed...");
 		
 		_animPlayer?.Play("TransOut");
-		
+		// Show and enable the button
+		if(_assetButton != null)	{
+			_assetButton.Visible = true; // Make visible
+			_assetButton.Disabled = false;  // allow interaction
+		}
 	}
 }
