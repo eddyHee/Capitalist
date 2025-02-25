@@ -1,12 +1,12 @@
 using Godot;
 using System.Collections.Generic;
 
-public class Market
+public static class Market
 {
-	public List<Good> AvailableGoods { get; set; }
-	public List<Product> AvailableProducts { get; set; }
+	public static List<Good> AvailableGoods { get; set; }
+	public static List<Product> AvailableProducts { get; set; }
 
-	public Market()
+	static Market()
 	{
 		// Initialize default goods
 		AvailableGoods = CreateDefaultGoods();
@@ -14,7 +14,7 @@ public class Market
 		AvailableProducts = CreateDefaultProducts();
 	}
 
-	private List<Good> CreateDefaultGoods()
+	private static List<Good> CreateDefaultGoods()
 	{
 		// Create basic goods (no required goods)
 		var metal = new Good("Metal", 2, null);
@@ -31,7 +31,7 @@ public class Market
 		return new List<Good> { metal, rubber, tire, battery, car };
 	}
 	
-	private List<Product> CreateDefaultProducts()
+	private static List<Product> CreateDefaultProducts()
 	{
 		// Create basic product (no required goods)
 		var metal = new Product(
@@ -53,9 +53,30 @@ public class Market
 		// Add all goods to the list
 		return new List<Product> { metal, rubber };
 	}
+	
+	public static void AddNewProduct(Product product)
+	{
+		if (product == null)
+		{
+			GD.PrintErr("Cannot add a null product.");
+			return;
+		}
+
+		// Check if the product already exists in the list
+		// TODO: avoid add same product made by same company
+		//if (AvailableProducts.Contains(product))
+		//{
+			//GD.PrintErr($"Product '{product.GoodsToBuild.Name}' already exists in the market.");
+			//return;
+		//}
+
+		// Add the product to the list
+		AvailableProducts.Add(product);
+		GD.Print($"Added new product: {product.Good.Name}");
+	}
 
 	// Method to print all available goods
-	public void PrintAvailableGoods()
+	public static void PrintAvailableGoods()
 	{
 		foreach (var goods in AvailableGoods)
 		{
@@ -72,6 +93,19 @@ public class Market
 			{
 				GD.Print("No required goods.");
 			}
+			GD.Print("---");
+		}
+	}
+	
+	public static void PrintAvailableProducts()
+	{
+		foreach (var product in AvailableProducts)
+		{
+			GD.Print($"Product: {product.Good.Name}");
+			GD.Print($"Made By: {product.MadeBy}");
+			//GD.Print($"Cost to Build: {product.CostToBuild}");
+			//GD.Print($"Time to Build: {product.TimeToBuild}");
+			//GD.Print($"Current Quantities: {product.CurrentQuantities}");
 			GD.Print("---");
 		}
 	}
