@@ -157,7 +157,7 @@ sources/0 = SubResource("TileSetAtlasSource_udsg1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iryt8"]
 size = Vector2(941, 95.5)
 
-[node name="Landing_BG" type="ParallaxBackground"]
+[node name="landing_Bg" type="ParallaxBackground"]
 script = ExtResource("1_pef11")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
