@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://damcrql2kp43m"]
+
+[ext_resource type="PackedScene" uid="uid://hjckk0hshna0" path="res://Scenes/Main/main_Bg.tscn" id="1_8ssx0"]
+[ext_resource type="PackedScene" uid="uid://dwry2g3cjabkr" path="res://Scenes/Main/main_controls.tscn" id="2_m7dfq"]
+[ext_resource type="PackedScene" uid="uid://chrw5f1xjkb6b" path="res://Scenes/Main/Assets/company_assets.tscn" id="3_uacbt"]
+
+[node name="Main" type="Node2D"]
+
+[node name="main_Bg" parent="." instance=ExtResource("1_8ssx0")]
+
+[node name="main_controls" parent="." instance=ExtResource("2_m7dfq")]
+
+[node name="company_assets" parent="." instance=ExtResource("3_uacbt")]
