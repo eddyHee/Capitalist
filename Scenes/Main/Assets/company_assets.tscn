@@ -82,18 +82,20 @@ offset_right = 889.0
 offset_bottom = 109.0
 text = "Close"
 
-[node name="Control" type="Control" parent="."]
+[node name="CompanyInfo" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="CompanyInfo"]
 offset_left = 424.0
 offset_top = 60.0
 offset_right = 532.0
 offset_bottom = 83.0
 text = "Company Info"
 
-[node name="MoneyValue" type="Label" parent="Control"]
+[node name="MoneyValue" type="Label" parent="CompanyInfo"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 160.0
@@ -103,14 +105,14 @@ offset_bottom = 163.0
 text = "{Money}
 "
 
-[node name="MoneyLabel" type="Label" parent="Control/MoneyValue"]
+[node name="MoneyLabel" type="Label" parent="CompanyInfo/MoneyValue"]
 layout_mode = 0
 offset_left = -72.0
 offset_right = -15.0
 offset_bottom = 23.0
 text = "Money:"
 
-[node name="CompanyNameValue" type="Label" parent="Control"]
+[node name="CompanyNameValue" type="Label" parent="CompanyInfo"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 232.0
@@ -119,7 +121,7 @@ offset_right = 368.0
 offset_bottom = 115.0
 text = "{Company Name}"
 
-[node name="CompanyNameLabel" type="Label" parent="Control/CompanyNameValue"]
+[node name="CompanyNameLabel" type="Label" parent="CompanyInfo/CompanyNameValue"]
 layout_mode = 0
 offset_left = -144.0
 offset_right = -15.0
@@ -127,21 +129,21 @@ offset_bottom = 23.0
 text = "Company Name:
 "
 
-[node name="DepartmentLabel" type="Label" parent="Control"]
+[node name="DepartmentLabel" type="Label" parent="CompanyInfo"]
 offset_left = 88.0
 offset_top = 188.0
 offset_right = 195.0
 offset_bottom = 211.0
 text = "Departments:"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CompanyInfo"]
 custom_minimum_size = Vector2(740, 90)
 offset_left = 88.0
 offset_top = 212.0
 offset_right = 828.0
 offset_bottom = 302.0
 
-[node name="DepartmentContainer" type="GridContainer" parent="Control/ScrollContainer" node_paths=PackedStringArray("_departmentContainer")]
+[node name="DepartmentContainer" type="GridContainer" parent="CompanyInfo/ScrollContainer" node_paths=PackedStringArray("_departmentContainer")]
 custom_minimum_size = Vector2(740, 90)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -151,14 +153,14 @@ script = ExtResource("2_6omfr")
 _departmentContainer = NodePath(".")
 _departmentSlotScene = ExtResource("3_feh4c")
 
-[node name="ProductLabel" type="Label" parent="Control"]
+[node name="ProductLabel" type="Label" parent="CompanyInfo"]
 offset_left = 88.0
 offset_top = 316.0
 offset_right = 195.0
 offset_bottom = 339.0
 text = "Product:"
 
-[node name="ProductContainer" type="GridContainer" parent="." node_paths=PackedStringArray("_productContainer")]
+[node name="ProductContainer" type="GridContainer" parent="CompanyInfo" node_paths=PackedStringArray("_productContainer")]
 custom_minimum_size = Vector2(220, 90)
 offset_left = 88.0
 offset_top = 348.0
@@ -168,3 +170,18 @@ columns = 2
 script = ExtResource("4_5j6ei")
 _productContainer = NodePath(".")
 _productSlotScene = ExtResource("5_5ukrc")
+
+[node name="ProductManagement" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProductManagementLabel" type="Label" parent="ProductManagement"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 76.0
+offset_right = 560.0
+offset_bottom = 99.0
+text = "Product Management"
