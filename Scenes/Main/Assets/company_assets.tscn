@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://chrw5f1xjkb6b"]
+[gd_scene load_steps=12 format=3 uid="uid://chrw5f1xjkb6b"]
 
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/CompanyAssets.cs" id="1_y8kw8"]
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/DepartmentContainer.cs" id="2_6omfr"]
 [ext_resource type="PackedScene" uid="uid://b4uj3yxpb1m8" path="res://Scenes/Main/Assets/department_slot.tscn" id="3_feh4c"]
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductContainer.cs" id="4_5j6ei"]
 [ext_resource type="PackedScene" uid="uid://drrej5kdvnocr" path="res://Scenes/Main/Assets/product_slot.tscn" id="5_5ukrc"]
+[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductsDetailContainer.cs" id="6_taa88"]
+[ext_resource type="PackedScene" uid="uid://b8xk5qgxse5jw" path="res://Scenes/Main/Assets/product_detail.tscn" id="7_duwtr"]
 
 [sub_resource type="Animation" id="Animation_4b4k7"]
 length = 0.001
@@ -89,6 +91,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Label" type="Label" parent="CompanyInfo"]
+layout_mode = 0
 offset_left = 424.0
 offset_top = 60.0
 offset_right = 532.0
@@ -130,6 +133,7 @@ text = "Company Name:
 "
 
 [node name="DepartmentLabel" type="Label" parent="CompanyInfo"]
+layout_mode = 0
 offset_left = 88.0
 offset_top = 188.0
 offset_right = 195.0
@@ -138,6 +142,7 @@ text = "Departments:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CompanyInfo"]
 custom_minimum_size = Vector2(740, 90)
+layout_mode = 0
 offset_left = 88.0
 offset_top = 212.0
 offset_right = 828.0
@@ -154,6 +159,7 @@ _departmentContainer = NodePath(".")
 _departmentSlotScene = ExtResource("3_feh4c")
 
 [node name="ProductLabel" type="Label" parent="CompanyInfo"]
+layout_mode = 0
 offset_left = 88.0
 offset_top = 316.0
 offset_right = 195.0
@@ -162,6 +168,7 @@ text = "Product:"
 
 [node name="ProductContainer" type="GridContainer" parent="CompanyInfo" node_paths=PackedStringArray("_productContainer")]
 custom_minimum_size = Vector2(220, 90)
+layout_mode = 0
 offset_left = 88.0
 offset_top = 348.0
 offset_right = 308.0
@@ -175,13 +182,25 @@ _productSlotScene = ExtResource("5_5ukrc")
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="ProductManagementLabel" type="Label" parent="ProductManagement"]
 layout_mode = 0
-offset_left = 392.0
+offset_left = 88.0
 offset_top = 76.0
-offset_right = 560.0
+offset_right = 256.0
 offset_bottom = 99.0
-text = "Product Management"
+text = "In Production:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ProductManagement"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 120.0
+offset_right = 870.0
+offset_bottom = 470.0
+
+[node name="ProductsDetailContainer" type="GridContainer" parent="ProductManagement/ScrollContainer" node_paths=PackedStringArray("_productsDetailContainer")]
+custom_minimum_size = Vector2(800, 180)
+layout_mode = 2
+script = ExtResource("6_taa88")
+_productsDetailContainer = NodePath(".")
+_productDetailSlotScene = ExtResource("7_duwtr")
