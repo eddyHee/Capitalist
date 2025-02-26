@@ -18,6 +18,8 @@ public partial class MaterialCostSlot : Panel
 		if (_clickableButton != null)
 		{
 			_clickableButton.Pressed += OnButtonPressed;
+			// Add hover effects to the TextureButton
+			UIUtil.AddHoverEffects(_clickableButton);
 		}
 		else
 		{
