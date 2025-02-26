@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/MaterialCostSlot.cs" id="1_7j1sq"]
 
-[node name="material_cost_slot" type="Panel" node_paths=PackedStringArray("_materialNameLabel", "_materialCost", "_madeBy")]
+[node name="material_cost_slot" type="Panel" node_paths=PackedStringArray("_materialNameLabel", "_materialCost", "_madeBy", "_clickableButton")]
 custom_minimum_size = Vector2(260, 60)
 offset_right = 260.0
 offset_bottom = 64.0
@@ -10,6 +10,7 @@ script = ExtResource("1_7j1sq")
 _materialNameLabel = NodePath("MaterialName")
 _materialCost = NodePath("Cost")
 _madeBy = NodePath("Maker")
+_clickableButton = NodePath("TextureButton")
 
 [node name="MaterialName" type="Label" parent="."]
 layout_mode = 0
@@ -32,3 +33,11 @@ offset_right = 208.0
 offset_bottom = 47.0
 text = "Maker"
 autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

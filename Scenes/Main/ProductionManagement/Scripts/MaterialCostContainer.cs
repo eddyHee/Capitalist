@@ -13,6 +13,7 @@ public partial class MaterialCostContainer : GridContainer
 {
 	[Export] private GridContainer _materialCostContainer;
 	[Export] private PackedScene _materialCostSlotScene;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -47,5 +48,14 @@ public partial class MaterialCostContainer : GridContainer
 			slot.SetMaterialCostData(product.Name, $"{pricePerUnit}", product.MadeBy);
 			_materialCostContainer.AddChild(slot);
 		}
+	}
+	
+	// Method to handle slot clicks
+	private void HandleSlotClicked(string materialName)
+	{
+		GD.Print($"MaterialCostContainer: Slot clicked for material {materialName}");
+		
+		// Add your custom logic here
+		// For example, open a detailed view or update UI
 	}
 }
