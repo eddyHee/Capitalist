@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://fpciefa20vpt"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/MaterialCostSlot.cs" id="1_3psky"]
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/MaterialCostSlot.cs" id="1_7j1sq"]
 
 [node name="material_cost_slot" type="Panel" node_paths=PackedStringArray("_materialNameLabel", "_materialCost", "_madeBy")]
 custom_minimum_size = Vector2(260, 60)
 offset_right = 260.0
 offset_bottom = 64.0
-script = ExtResource("1_3psky")
+script = ExtResource("1_7j1sq")
 _materialNameLabel = NodePath("MaterialName")
 _materialCost = NodePath("Cost")
 _madeBy = NodePath("Maker")

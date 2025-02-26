@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/CompanyAssets.cs" id="1_y8kw8"]
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/DepartmentContainer.cs" id="2_6omfr"]
-[ext_resource type="PackedScene" uid="uid://b4uj3yxpb1m8" path="res://Scenes/Main/Assets/department_slot.tscn" id="3_feh4c"]
+[ext_resource type="PackedScene" uid="uid://b4uj3yxpb1m8" path="res://Scenes/Main/Assets/CompanyInfo/department_slot.tscn" id="3_feh4c"]
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductContainer.cs" id="4_5j6ei"]
-[ext_resource type="PackedScene" uid="uid://drrej5kdvnocr" path="res://Scenes/Main/Assets/product_slot.tscn" id="5_5ukrc"]
+[ext_resource type="PackedScene" uid="uid://drrej5kdvnocr" path="res://Scenes/Main/Assets/CompanyInfo/product_slot.tscn" id="5_5ukrc"]
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductsDetailContainer.cs" id="6_taa88"]
-[ext_resource type="PackedScene" uid="uid://b8xk5qgxse5jw" path="res://Scenes/Main/Assets/product_detail.tscn" id="7_duwtr"]
+[ext_resource type="PackedScene" uid="uid://b8xk5qgxse5jw" path="res://Scenes/Main/ProductionManagement/product_detail.tscn" id="7_duwtr"]
 
 [sub_resource type="Animation" id="Animation_4b4k7"]
 length = 0.001

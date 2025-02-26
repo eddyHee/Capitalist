@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8xk5qgxse5jw"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/ProductDetailSlot.cs" id="1_c7wo6"]
-[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/MaterialCostContainer.cs" id="1_sea7o"]
-[ext_resource type="PackedScene" uid="uid://fpciefa20vpt" path="res://Scenes/Main/Assets/material_cost_slot.tscn" id="2_kjyml"]
-[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/SellToContainer.cs" id="4_0oxs0"]
-[ext_resource type="PackedScene" uid="uid://bb2sheb7pre36" path="res://Scenes/Main/Assets/sell_to_slot.tscn" id="5_mbo88"]
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/ProductDetailSlot.cs" id="1_c7wo6"]
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/MaterialCostContainer.cs" id="1_sea7o"]
+[ext_resource type="PackedScene" uid="uid://fpciefa20vpt" path="res://Scenes/Main/ProductionManagement/material_cost_slot.tscn" id="2_kjyml"]
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/SellToContainer.cs" id="4_0oxs0"]
+[ext_resource type="PackedScene" uid="uid://bb2sheb7pre36" path="res://Scenes/Main/ProductionManagement/sell_to_slot.tscn" id="5_mbo88"]
 
 [node name="ProductDetailSlot" type="Panel" node_paths=PackedStringArray("_productName", "_progressStatus", "_storage", "_netProfit", "_materialCostContainer", "_sellToContainerContainer")]
 custom_minimum_size = Vector2(800, 200)
@@ -97,6 +97,7 @@ offset_bottom = 23.0
 text = "Sell To:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GridContainer/SellToPanel"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 20.0
 offset_right = 310.0

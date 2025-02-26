@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4uj3yxpb1m8"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/DepartmentSlot.cs" id="1_m1dyo"]
+[ext_resource type="Script" path="res://Scenes/Main/Assets/CompanyInfo/Scripts/DepartmentSlot.cs" id="1_hdunv"]
 
 [node name="Slot" type="Panel" node_paths=PackedStringArray("_departmentNameLabel", "_headcountLabel")]
 custom_minimum_size = Vector2(200, 80)
 offset_right = 64.0
 offset_bottom = 32.0
-script = ExtResource("1_m1dyo")
+script = ExtResource("1_hdunv")
 _departmentNameLabel = NodePath("DepartmentName")
 _headcountLabel = NodePath("HeadCount")
 
