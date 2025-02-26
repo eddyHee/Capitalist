@@ -62,51 +62,9 @@ public partial class AssetData : Node
 		
 		// Initialize company data
 		// TODO: this can be part of training process
-		InitializeDepartmentData();
-		InitializeProductData();
+		GD.Print("\n --- START Initialization in AssetData class ---\n");
+		Departments = DataUtil.InitializeDepartmentData();
+		Products = DataUtil.InitializeProductData();
+		GD.Print("\n --- FINISH Initialization in AssetData class ---\n");
 	}
-	
-	// Sample data initialization
-	private void InitializeDepartmentData()
-	{
-
-		
-		// Create a Sales department
-		var salesDepartment = new Department("Sales");
-		salesDepartment.AddEmployee(new Employee("Steve", 100));
-		salesDepartment.AddEmployee(new Employee("Bob", 110));
-
-		// Create a Marketing department
-		var marketingDepartment = new Department("Marketing");
-		marketingDepartment.AddEmployee(new Employee("Alice", 120));
-		marketingDepartment.AddEmployee(new Employee("John", 130));
-		
-		// Create a Production department
-		var productionDepartment = new Department("Production");
-		productionDepartment.AddEmployee(new Employee("Alex", 120));
-		productionDepartment.AddEmployee(new Employee("John", 130));
-
-		// Add departments to the list
-		Departments.Add(salesDepartment);
-		Departments.Add(marketingDepartment);
-		Departments.Add(productionDepartment);
-		
-	}
-	
-	private void InitializeProductData()
-	{
-		// Create a new product
-		var tire = new Product(
-			Market.AvailableGoods.Find(g => g.Name == "Tire"), // GoodsToBuild
-			CompanyName, // MadeBy
-			true // is made by player
-		);
-		
-		// Add the new product to the market
-		Market.AddNewProduct(tire);
-		Products.Add(tire);
-		Market.PrintAvailableProducts();
-	}
-	
-	
 }

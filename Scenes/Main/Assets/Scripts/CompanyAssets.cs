@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 /* Summary
 This class is attached to company_assets(CanvasLayer)
@@ -9,10 +8,11 @@ The company_assets is a info panel designed to show all infomation about the com
 public partial class CompanyAssets : CanvasLayer
 {
 	
+	// Node references
 	// Nodes in company_assets
 	private AnimationPlayer _animPlayer;
 	private Button _closeAssetButton;
-	private Button _marketButton;
+	private Button _manageProductButton;
 	private Label _moneyValue;
 	private Label _companyNameValue;
 	
@@ -22,19 +22,52 @@ public partial class CompanyAssets : CanvasLayer
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// Nodes in company_assets
-		GetCloseAsset();
-		GetAnimationPlayer();
-		GetMoneyValue();
-		GetCompanyNameValue();
-		
-		// Nodes in main_controls
-		GetAssetButton();
-		GetMarketButton();
-		
-		
+		InitializeNodes();
+		InitializeNodesValue();
+		ConnectSignals();
 	}
+	
+	// Initialize all node references
+	private void InitializeNodes()
+	{
+		_closeAssetButton = GetNode<Button>("%CloseAsset");
+		_animPlayer = GetNode<AnimationPlayer>($"Anim");
+		_moneyValue = GetNode<Label>("%MoneyValue");
+		_companyNameValue = GetNode<Label>("%CompanyNameValue");
+		_assetButton = GetNode<Button>($"../main_controls/AssetButton");
+		_manageProductButton = GetNode<Button>($"../main_controls/ManageProductButton");
 
+		// Log errors if nodes are not found
+		if(_closeAssetButton == null) GD.PrintErr("closeAssetButton not found!");
+		if(_animPlayer == null) GD.PrintErr("AnimationPlayer not found!");
+		if(_moneyValue == null) GD.PrintErr("Money value label not found!");
+		if(_companyNameValue == null) GD.PrintErr("Company name value label not found!");
+		if(_assetButton == null) GD.PrintErr("assetButton not found!");
+		if(_manageProductButton == null) GD.PrintErr("Manage Produce button not found!");
+	}
+	
+	private void InitializeNodesValue()
+	{
+		if (_moneyValue != null)
+		{
+			_moneyValue.Text = AssetData.Instance.Money.ToString();
+		}
+		if (_companyNameValue != null)
+		{
+			_companyNameValue.Text = AssetData.Instance.CompanyName;
+			
+		}
+	}
+	
+	// Connect button signals to methods
+	private void ConnectSignals()
+	{
+		if (_closeAssetButton != null)
+		{
+			_closeAssetButton.Pressed += OncloseAssetButtonPressed;
+		}
+	}
+	
 	/* Summary
 	This method close the panel
 	
@@ -51,81 +84,9 @@ public partial class CompanyAssets : CanvasLayer
 		if(_assetButton != null)	{
 			_assetButton.Visible = true; // Make visible
 			_assetButton.Disabled = false;  // allow interaction
-			_marketButton.Visible = true;
-			_marketButton.Disabled = false;
+			_manageProductButton.Visible = true;
+			_manageProductButton.Disabled = false;
 		}
 	}
-	
-	/* Summary
-	The methods below are getting nodes
-	
-	setup action
-	init value
-	*/
-	private void GetMoneyValue() {
-		_moneyValue = GetNode<Label>("%MoneyValue");
-		
-		if(_moneyValue != null) {
-			_moneyValue.Text = AssetData.Instance.Money.ToString();
-		} else {
-			GD.PrintErr("Money value label not found!");
-		}
-	}
-	
-	private void GetCompanyNameValue() {
-		_companyNameValue = GetNode<Label>("%CompanyNameValue");
-		
-		if(_companyNameValue != null) {
-			_companyNameValue.Text = AssetData.Instance.CompanyName;
-		} else {
-			GD.PrintErr("Company name value label not found!");
-		}
-	}
-	
-	private void GetCloseAsset(){
-		_closeAssetButton = GetNode<Button>("%CloseAsset");
-		
-		if(_closeAssetButton != null){
-			_closeAssetButton.Pressed += OncloseAssetButtonPressed;
-		} else {
-			GD.PrintErr("closeAssetButton not found!");
-		}
-	}
-	
-	// NOTE:
-	// asset button should be disabled and invisiable when showing this info panel
-	// we need to revert the changes when close panel
-	// no connection needed in the button click
-	private void GetAssetButton(){
-		_assetButton = GetNode<Button>($"../main_controls/AssetButton");
-		
-		if(_assetButton != null){
-			
-		} else {
-			GD.PrintErr("assetButton not found!");
-		}
-	}
-	
-	private void GetMarketButton(){
-		_marketButton = GetNode<Button>($"../main_controls/MarketButton");
-		
-		if(_marketButton != null)
-		{
-			
-		}
-		else 
-		{
-			GD.PrintErr("Market button not found!");
-		}
-	}
-	
-	private void GetAnimationPlayer(){
-		_animPlayer = GetNode<AnimationPlayer>($"Anim");
-		if(_animPlayer == null)
-		{
-			GD.PrintErr("AnimationPlayer not found!");
-		}
-	}
-	
 	
 }

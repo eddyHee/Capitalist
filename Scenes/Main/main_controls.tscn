@@ -13,10 +13,10 @@ offset_right = 921.0
 offset_bottom = 136.0
 text = "Asset Info"
 
-[node name="MarketButton" type="Button" parent="."]
+[node name="ManageProductButton" type="Button" parent="."]
 unique_name_in_owner = true
 offset_left = 729.0
 offset_top = 388.0
 offset_right = 900.0
 offset_bottom = 495.0
-text = "Market Management"
+text = "Manage Product"

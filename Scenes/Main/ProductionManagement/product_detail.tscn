@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8xk5qgxse5jw"]
+
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/ProductDetailSlot.cs" id="1_c7wo6"]
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/MaterialCostContainer.cs" id="1_sea7o"]
+[ext_resource type="PackedScene" uid="uid://fpciefa20vpt" path="res://Scenes/Main/ProductionManagement/material_cost_slot.tscn" id="2_kjyml"]
+[ext_resource type="Script" path="res://Scenes/Main/ProductionManagement/Scripts/SellToContainer.cs" id="4_0oxs0"]
+[ext_resource type="PackedScene" uid="uid://bb2sheb7pre36" path="res://Scenes/Main/ProductionManagement/sell_to_slot.tscn" id="5_mbo88"]
+
+[node name="ProductDetailSlot" type="Panel" node_paths=PackedStringArray("_productName", "_progressStatus", "_storage", "_netProfit", "_materialCostContainer", "_sellToContainerContainer")]
+custom_minimum_size = Vector2(800, 200)
+layout_direction = 1
+offset_right = 600.0
+offset_bottom = 200.0
+script = ExtResource("1_c7wo6")
+_productName = NodePath("ProductName")
+_progressStatus = NodePath("ProgressStatus")
+_storage = NodePath("Storage")
+_netProfit = NodePath("NetProfit")
+_materialCostContainer = NodePath("GridContainer/MaterialCostPanel/ScrollContainer/MaterialCostContainer")
+_sellToContainerContainer = NodePath("GridContainer/SellToPanel/ScrollContainer/SellToContainer")
+
+[node name="ProductName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 31.0
+text = "Product Name"
+
+[node name="ProgressStatus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 256.0
+offset_bottom = 31.0
+text = "Progress Status"
+
+[node name="Storage" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 8.0
+offset_right = 340.0
+offset_bottom = 31.0
+text = "Storage"
+
+[node name="NetProfit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 8.0
+offset_right = 436.0
+offset_bottom = 31.0
+text = "Net Profit"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 735.0
+offset_bottom = 175.0
+columns = 2
+
+[node name="MaterialCostPanel" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(280, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MaterialCostLabel" type="Label" parent="GridContainer/MaterialCostPanel"]
+layout_mode = 0
+offset_right = 108.0
+offset_bottom = 23.0
+text = "Material Cost:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GridContainer/MaterialCostPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 310.0
+offset_bottom = 120.0
+
+[node name="MaterialCostContainer" type="GridContainer" parent="GridContainer/MaterialCostPanel/ScrollContainer" node_paths=PackedStringArray("_materialCostContainer")]
+layout_mode = 2
+script = ExtResource("1_sea7o")
+_materialCostContainer = NodePath(".")
+_materialCostSlotScene = ExtResource("2_kjyml")
+
+[node name="SellToPanel" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(280, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SellToLabel" type="Label" parent="GridContainer/SellToPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Sell To:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GridContainer/SellToPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 310.0
+offset_bottom = 120.0
+
+[node name="SellToContainer" type="GridContainer" parent="GridContainer/SellToPanel/ScrollContainer" node_paths=PackedStringArray("_sellToCostContainer")]
+layout_mode = 2
+script = ExtResource("4_0oxs0")
+_sellToCostContainer = NodePath(".")
+_sellToSlotScene = ExtResource("5_mbo88")
