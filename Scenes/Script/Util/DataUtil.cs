@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 public static class DataUtil
 {
+	// ========================
+	// below functions are used in AssetData to create test data
+	// 
+	// ========================
 	// Initialize department data
 	public static List<Department> InitializeDepartmentData()
 	{
@@ -50,6 +54,8 @@ public static class DataUtil
 		tire.AddMaterialRequirement(Market.GetProductByName("Rubber"), 1, 12, true);
 		Market.AddNewProduct(tire);
 		products.Add(tire);
+		
+		tire.AddSalesRecord("Metal specialist", 1, 20);
 
 		// Create a new product: Battery
 		var battery = new Product(
@@ -69,8 +75,8 @@ public static class DataUtil
 			AssetData.Instance.CompanyName,
 			true
 		);
-		car.AddMaterialRequirement(Market.GetProductByName("Tire"), 1, 14, true);
-		tire.AddMaterialRequirement(Market.GetProductByName("Metal"), 1, 12, true);
+		//car.AddMaterialRequirement(Market.GetProductByName("Tire"), 1, 14, true);
+		//tire.AddMaterialRequirement(Market.GetProductByName("Metal"), 1, 12, true);
 		Market.AddNewProduct(car);
 		products.Add(car);
 

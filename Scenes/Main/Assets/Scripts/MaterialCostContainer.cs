@@ -44,7 +44,7 @@ public partial class MaterialCostContainer : GridContainer
 
 			// Instantiate a new slot and set its data
 			var slot = _materialCostSlotScene.Instantiate<MaterialCostSlot>();
-			slot.SetMaterialCostData(product.Name, $"{pricePerUnit}");
+			slot.SetMaterialCostData(product.Name, $"{pricePerUnit}", product.MadeBy);
 			_materialCostContainer.AddChild(slot);
 		}
 	}

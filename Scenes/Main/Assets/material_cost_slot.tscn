@@ -2,26 +2,33 @@
 
 [ext_resource type="Script" path="res://Scenes/Main/Assets/Scripts/MaterialCostSlot.cs" id="1_3psky"]
 
-[node name="material_cost_slot" type="Panel" node_paths=PackedStringArray("_materialNameLabel", "_materialCost")]
-custom_minimum_size = Vector2(260, 50)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="material_cost_slot" type="Panel" node_paths=PackedStringArray("_materialNameLabel", "_materialCost", "_madeBy")]
+custom_minimum_size = Vector2(260, 60)
+offset_right = 260.0
+offset_bottom = 64.0
 script = ExtResource("1_3psky")
 _materialNameLabel = NodePath("MaterialName")
 _materialCost = NodePath("Cost")
+_madeBy = NodePath("Maker")
 
 [node name="MaterialName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 136.0
-offset_bottom = 31.0
+offset_right = 120.0
+offset_bottom = 23.0
 text = "Material Name:"
 
 [node name="Cost" type="Label" parent="."]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 8.0
-offset_right = 208.0
-offset_bottom = 31.0
+offset_left = 216.0
+offset_top = 16.0
+offset_right = 256.0
+offset_bottom = 39.0
 text = "Cost"
+
+[node name="Maker" type="Label" parent="."]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 208.0
+offset_bottom = 47.0
+text = "Maker"
+autowrap_mode = 3
