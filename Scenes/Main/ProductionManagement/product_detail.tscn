@@ -78,11 +78,20 @@ offset_top = 20.0
 offset_right = 310.0
 offset_bottom = 120.0
 
-[node name="MaterialCostContainer" type="GridContainer" parent="GridContainer/MaterialCostPanel/ScrollContainer" node_paths=PackedStringArray("_materialCostContainer")]
+[node name="MaterialCostContainer" type="GridContainer" parent="GridContainer/MaterialCostPanel/ScrollContainer" node_paths=PackedStringArray("_materialCostContainer", "_updateMaterial")]
 layout_mode = 2
 script = ExtResource("1_sea7o")
 _materialCostContainer = NodePath(".")
 _materialCostSlotScene = ExtResource("2_kjyml")
+_updateMaterial = NodePath("../../UpdateMaterial")
+
+[node name="UpdateMaterial" type="Button" parent="GridContainer/MaterialCostPanel"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = -3.0
+offset_right = 338.0
+offset_bottom = 28.0
+text = "update materials"
 
 [node name="SellToPanel" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(280, 140)

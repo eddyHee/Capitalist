@@ -13,6 +13,7 @@ public partial class MaterialCostContainer : GridContainer
 {
 	[Export] private GridContainer _materialCostContainer;
 	[Export] private PackedScene _materialCostSlotScene;
+	[Export] private Button _updateMaterial;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,6 +22,15 @@ public partial class MaterialCostContainer : GridContainer
 		{
 			GD.PrintErr("MaterialCostContainer or materialCostSlotScene is not assigned!");
 			return;
+		}
+		if (_updateMaterial == null)
+		{
+			GD.PrintErr("updateMaterialButton is not assigned!");
+			
+		} 
+		else
+		{
+			_updateMaterial.Pressed += OnButtonPressed;
 		}
 
 		//PopulateMaterials();
@@ -57,5 +67,11 @@ public partial class MaterialCostContainer : GridContainer
 		
 		// Add your custom logic here
 		// For example, open a detailed view or update UI
+	}
+	
+	private void OnButtonPressed()
+	{
+		GD.Print("Update material button clicked!!");
+		
 	}
 }
